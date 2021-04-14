@@ -30,10 +30,10 @@ public class Consumers {
     public void setID(int iD) {
         this.ID = iD;
     }
-    public int getCPF() {
+    public String  getCPF() {
         return CPF;
     }
-    public void setCPF(int cPF) {
+    public void setCPF(String cPF) {
         this.CPF = cPF;
     }
     public void setName(String name) {
@@ -49,7 +49,7 @@ public class Consumers {
 
     } 
     public int verify_cpf(String CPF){ 
-         
+
 
     } 
     public int verify_email(String email){ 
