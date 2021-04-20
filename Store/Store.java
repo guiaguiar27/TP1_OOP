@@ -30,8 +30,11 @@ public class Store {
     } 
     private  int getQuantitySales(){    
         return listSales.size(); 
-    }  
-    
+    }   
+
+    private void buy(){ 
+        System.out.println("Digite o nome do produto que deseja comprar");
+    }
 
     //--------------------------------------------------------------- stoke area -----------------------------------------------------------
     
@@ -118,14 +121,16 @@ public class Store {
                 if(c.getEmail().equals(inputEmail)){  
                     System.out.println("Entre com a sua senha:"); 
                     inputPassword = get.nextLine(); 
-                      
+
                     while(count <= Try){ 
                         if(c.compare_password(inputPassword) == true){ 
                             System.out.println("Ola, "+c.getName()); 
                             return true;   
                         } 
-                        else{ 
-                            System.out.println("Senha Incorreta"); 
+                        if(c.compare_password(inputPassword) == false){ 
+                            System.out.println("Senha Incorreta! Entre com a sua senha:");  
+                            inputPassword = get.nextLine(); 
+
                         }  
                         count++; 
                         if(count == Try){ 
@@ -195,17 +200,16 @@ public class Store {
         int ans = 0 ; 
         boolean stop = false;  
         while(stop == false){ 
-        //clearScreen(); 
+        //clearScreen();  
+        
+        get.nextLine();     
         System.out.println("----------------------- MENU CLIENTE ------------------------");
         System.out.println("Digite o que deseja fazer na loja");  
         System.out.println("* 1 - Criar nova conta ");
         System.out.println("* 2 - visualizar todos os produtos da loja"); 
         System.out.println("* 3 - Entrar na sua conta"); 
-        System.out.println("* 4 - Visualizar suas compras");  
-        System.out.println("* 5 - Realizar compras");  
         System.out.println("* 0 - Sair");    
 
-        get.nextLine(); 
         ans = get.nextInt();
         switch(ans){ 
             case 0:  
@@ -284,9 +288,33 @@ public class Store {
                 break; 
 
         } 
-        
+
     }
 
+    } 
+    private void menu_costumer_registered(Costumers C){  
+        int ans = 3 ; 
+        System.out.println("Olá, "+C.getName()+ "!");
+        get.nextLine(); 
+        while(ans != 0){
+        System.out.println("* 1 - Visualizar suas compras");  
+        System.out.println("* 2 - Realizar compras");  
+        System.out.println("* 0 - Sair"); 
+        ans = get.nextInt(); 
+        switch(ans){ 
+            case 0: 
+                return;  
+            case 1:  
+                System.out.println("Compras realizadas");
+                break; 
+            case 2:   
+                list_products(); 
+                buy(); 
+                break; 
+
+        }     
+        } 
+          
     }
       
 } 

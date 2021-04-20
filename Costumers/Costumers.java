@@ -64,13 +64,6 @@ public class Costumers {
         CostumerAddress.fill_address();
 
     } 
-    public int verify_cpf(String CPF){ 
-
-        return 0;
-    } 
-    public int verify_email(String email){ 
-        return 0;
-    } 
     public void ShowCostumer(){ 
         System.out.println("--------------------------------------");
         System.out.println(" - Nome: "+getName()); 
